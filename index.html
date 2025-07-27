@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>TRAFFIC-INDUCTION-MANGERS.pdfViewer</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-        }
-        iframe {
-            border: none;
-            width: 100vw;
-            height: 100vh;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>TRAFFIC-INDUCTION-MANGERS - PDF Viewer</title>
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; }
+    #viewer { width: 100vw; height: 100vh; }
+  </style>
 </head>
 <body>
-    <iframe src="TRAFFIC-INDUCTION-MANGERS.pdf" type="application/pdf"></iframe>
+  <div id="viewer"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.min.js"></script>
+  <script>
+    const url = 'TRAFFIC-INDUCTION-MANGERS.pdf';
+    const container = document.getElementById('viewer');
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.worker.min.js';
+    pdfjsLib.getDocument(url).promise.then(function(pdf) {
+      for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+        pdf.getPage(pageNumber).then(function(page) {
+          let canvas = document.createElement('canvas');
+          container.appendChild(canvas);
+          let viewport = page.getViewport({ scale: 1.2 });
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+          page.render({canvasContext: canvas.getContext('2d'), viewport: viewport});
+        });
+      }
+    });
+  </script>
 </body>
 </html>
