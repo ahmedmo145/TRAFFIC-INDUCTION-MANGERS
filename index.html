@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TRAFFIC-INDUCTION-MANGERS PDF Viewer</title>
   <style>
-    html, body { height: 100%; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      margin: 15px 0 5px 0;
+      font-size: 24px;
+      color: #222;
+    }
     .pdf-container {
       width: 100vw;
-      height: 97vh;
+      height: 88vh;
     }
     .download-btn {
       display: block;
       text-align: center;
-      margin: 10px auto 12px auto;
+      margin: 8px auto;
       font-size: 18px;
       background: #0275d8;
       color: #fff;
@@ -28,9 +41,22 @@
   </style>
 </head>
 <body>
-  <a href="TRAFFIC-INDUCTION-MANGERS.pdf" class="download-btn" download>📥 Download PDF</a>
+
+  <h1>Highway Traffic Induction for Managers</h1>
+  <a href="TRAFFIC-INDUCTION-MANGERS.pdf" class="download-btn" download>
+    📥 Download PDF
+  </a>
+
   <div class="pdf-container">
-    <iframe src="TRAFFIC-INDUCTION-MANGERS.pdf#toolbar=1&navpanes=0&scrollbar=1" width="100%" height="100%" style="border:none;"></iframe>
+    <iframe
+      src="TRAFFIC-INDUCTION-MANGERS.pdf#view=FitH&scrollbar=1&toolbar=1"
+      width="100%"
+      height="100%"
+      style="border: none;"
+      title="Traffic Induction PDF Viewer"
+      aria-label="Traffic Induction PDF Document Viewer"
+    ></iframe>
   </div>
+
 </body>
 </html>
