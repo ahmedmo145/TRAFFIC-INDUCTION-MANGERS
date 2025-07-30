@@ -11,49 +11,65 @@
       padding: 0;
       font-family: Arial, sans-serif;
       background: #f9f9f9;
-    }
-    h1 {
-      text-align: center;
-      margin: 15px 0 5px 0;
-      font-size: 24px;
       color: #222;
     }
-    .pdf-container {
-      width: 100vw;
-      height: 88vh;
+
+    .header-bar {
+      background: #003366;
+      color: white;
+      padding: 12px 20px;
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
+
+    .header-bar img {
+      height: 36px;
+    }
+
     .download-btn {
-      display: block;
-      text-align: center;
-      margin: 8px auto;
-      font-size: 18px;
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      z-index: 100;
+      font-size: 16px;
       background: #0275d8;
       color: #fff;
-      padding: 12px 25px;
-      border-radius: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
-      width: fit-content;
     }
+
     .download-btn:hover {
       background: #014c8c;
     }
+
+    .pdf-container {
+      width: 100vw;
+      height: calc(100vh - 56px);
+      margin-top: 0;
+    }
   </style>
+
   <script>
-    // Mobile device detection
+    // Redirect mobile users to open full PDF
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
-      // Redirect to open PDF in native viewer or browser tab
       window.location.href = "TRAFFIC-INDUCTION-MANGERS.pdf";
     }
   </script>
 </head>
 <body>
 
-  <h1>Highway Traffic Induction for Managers</h1>
-  <a href="TRAFFIC-INDUCTION-MANGERS.pdf" class="download-btn" download>
-    📥 Download PDF
-  </a>
+  <div class="header-bar">
+    <img src="your-logo.png" alt="Logo" />
+    Highway Traffic Induction for Managers
+  </div>
+
+  <a href="TRAFFIC-INDUCTION-MANGERS.pdf" class="download-btn" download>📥 Download PDF</a>
 
   <div class="pdf-container">
     <iframe
