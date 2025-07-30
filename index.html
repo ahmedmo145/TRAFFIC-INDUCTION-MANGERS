@@ -53,14 +53,6 @@
       margin-top: 0;
     }
   </style>
-
-  <script>
-    // Redirect mobile users to open full PDF
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.location.href = "TRAFFIC-INDUCTION-MANGERS.pdf";
-    }
-  </script>
 </head>
 <body>
 
@@ -81,6 +73,16 @@
       aria-label="Traffic Induction PDF Document Viewer"
     ></iframe>
   </div>
+
+  <script>
+    // Mobile redirect delayed to allow logo/button to show
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      setTimeout(() => {
+        window.location.href = "TRAFFIC-INDUCTION-MANGERS.pdf";
+      }, 3000); // Wait 3 seconds before redirecting
+    }
+  </script>
 
 </body>
 </html>
