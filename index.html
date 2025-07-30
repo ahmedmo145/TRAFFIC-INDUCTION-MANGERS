@@ -39,6 +39,14 @@
       background: #014c8c;
     }
   </style>
+  <script>
+    // Mobile device detection
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      // Redirect to open PDF in native viewer or browser tab
+      window.location.href = "TRAFFIC-INDUCTION-MANGERS.pdf";
+    }
+  </script>
 </head>
 <body>
 
